@@ -1,0 +1,23 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<script type="javascript" src="post.js"></script>
+
+<dom-module id="post-list">
+    <script>
+        class PostList extends Polymer.Element {
+            static get is() { return "post-list"; }
+            
+            static get properties() { 
+                return { 
+                    posts: {
+                        type: Array,
+                        notify: true,
+                        readOnly: true,
+                        value: [ {title: "TEST", author: "mixth"}, {title: "101", author: "tanakrit"} ]
+                    }
+                }; 
+            }
+        }
+
+        window.customElements.define(PostList.is, PostList);
+    </script>
+</dom-module>
