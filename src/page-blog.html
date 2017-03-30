@@ -10,7 +10,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="post-list.html">
 
 <dom-module id="page-blog">
   <template>
@@ -21,20 +20,49 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <post-list posts="{{posts}}"></post-list>
+    <app-route
+        route="{{route}}"
+        pattern="/:id"
+        data="{{routeData}}"
+        tail="{{subroute}}"></app-route>
 
-    <template is="dom-repeat" items="{{posts}}">
-      <div class="card">
-        <div class="circle">[[index]]</div>
-        <h1>[[item.title]]</h1>
-        <p>[[item.author]]</p>
-      </div>
-    </template>
+    <iron-pages
+        selected="[[page]]"
+        attr-for-selected="name"
+        role="main">
+      <blog-list name="blog-list"></blog-list>
+      <single-post name="single-post"></single-post>
+    </iron-pages>
   </template>
 
   <script>
     class PageBlog extends Polymer.Element {
       static get is() { return 'page-blog'; }
+      
+      static get properties() {
+        return {
+          route: {
+            type: Object
+          }
+        };
+      }
+
+      static get observers() {
+        return [
+          '_idChanged(routeData.id)',
+        ];
+      }
+
+      _idChanged(id) {
+        this.page = id ? "single-post" : "blog-list";
+
+        var resolvedPageUrl = this.resolveUrl(this.page + '.html');
+        Polymer.importHref(
+            resolvedPageUrl,
+            null,
+            undefined,
+            true);
+      }
     }
 
     window.customElements.define(PageBlog.is, PageBlog);
