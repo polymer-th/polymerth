@@ -10,8 +10,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="post-entity.html">
 
-<dom-module id="my-view2">
+<dom-module id="single-post">
   <template>
     <style include="shared-styles">
       :host {
@@ -21,19 +22,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
+    <post-entity post="{{post}}"></post-entity>
+
     <div class="card">
       <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
+      <h1>[[post.title]]</h1>
+      <p>[[post.author]]</p>
+      <p>[[post.body]]</p>
     </div>
   </template>
 
   <script>
-    class MyView2 extends Polymer.Element {
-      static get is() { return 'my-view2'; }
+    class SinglePost extends Polymer.Element {
+      static get is() { return 'single-post'; }
     }
 
-    window.customElements.define(MyView2.is, MyView2);
+    window.customElements.define(SinglePost.is, SinglePost);
   </script>
 </dom-module>

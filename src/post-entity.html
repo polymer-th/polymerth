@@ -1,0 +1,30 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="post-entity">
+    <script>
+        class PostEntity extends Polymer.Element {
+            static get is() { return "post-entity"; }
+            
+            static get properties() { 
+                return { 
+                    post: {
+                        type: Object,
+                        notify: true,
+                        readOnly: true,
+                        value: {id: 1, title: "TEST", author: "mixth", body: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consectetur interdum nibh ut lacinia. Integer in vehicula sem, id mollis felis. Vestibulum eget ante tincidunt, efficitur sem sit amet, pulvinar massa. Maecenas sagittis libero eu egestas euismod. Nullam sit amet pharetra dui. Fusce sit amet lacinia massa. In hac habitasse platea dictumst. Vestibulum id blandit nisl. Etiam faucibus turpis dolor, in lacinia urna placerat sed. Integer congue sapien mauris, sed dictum elit fringilla et. Maecenas at diam eu quam sodales sollicitudin eu vel tellus. Suspendisse porta neque ex, eget pretium libero rhoncus eget. Praesent faucibus odio at leo ultrices consectetur. Etiam euismod laoreet elit eget fermentum. Mauris vel tincidunt turpis.
+
+Donec quis sollicitudin ex, vel vehicula nisi. Quisque sed libero nec turpis gravida semper. Curabitur consectetur suscipit egestas. Duis convallis vehicula dignissim. Suspendisse sollicitudin metus in rhoncus tristique. Aenean feugiat pretium purus ut hendrerit. Donec mollis dictum orci non iaculis. Cras luctus suscipit ullamcorper. In aliquam tellus vel ante iaculis pulvinar. Proin consequat turpis et porttitor pretium. Maecenas nisi nunc, lobortis nec dui eu, vestibulum efficitur ante. Etiam eget diam nulla. Phasellus nec fringilla sem. Vestibulum volutpat finibus ante, non scelerisque tortor rutrum sit amet.
+
+Vestibulum egestas commodo congue. Sed eget consectetur nisi, a maximus odio. In id volutpat nisl, sit amet tempus odio. Praesent semper nisi vel nisi fermentum, ac condimentum tortor venenatis. Praesent semper erat ut velit blandit egestas. Nam quam erat, auctor quis libero quis, commodo lacinia mi. In ac ipsum ac dolor semper ultricies. Ut non dui vitae dolor cursus cursus eleifend eu ipsum. Sed eu quam at nibh tincidunt interdum vitae eu risus. Maecenas gravida tempor accumsan. Suspendisse ut risus feugiat, bibendum neque sed, fringilla mauris. Duis imperdiet vestibulum suscipit. Curabitur vestibulum ligula ac risus mattis condimentum. Quisque tristique diam sed enim condimentum rhoncus. Praesent volutpat est vel tellus volutpat faucibus. Mauris ut massa cursus, porta nunc eget, consectetur nisl.
+
+Donec tincidunt cursus felis a faucibus. Nullam at aliquam dolor. Nam ultricies erat vitae venenatis rhoncus. Nullam non enim tincidunt, interdum libero at, egestas orci. Vestibulum porttitor orci ut augue ornare egestas. Vestibulum malesuada nunc at enim dapibus varius. Aenean tempus ornare dolor. Aliquam erat volutpat. Sed vitae libero id nibh congue interdum.
+
+Aenean laoreet lacus a lorem porttitor interdum. Duis bibendum interdum lorem, et tempor nunc placerat a. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ultricies pharetra ex id iaculis. Vestibulum molestie fringilla eros, a consectetur est tincidunt vel. In vitae commodo orci. Nam rhoncus elementum mauris, vehicula vestibulum quam eleifend dapibus. Praesent maximus iaculis nisl sit amet pellentesque.`}
+                    }
+                }; 
+            }
+        }
+
+        window.customElements.define(PostEntity.is, PostEntity);
+    </script>
+</dom-module>
