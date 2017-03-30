@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="shared-styles.html">
 <link rel="import" href="post-list.html">
 
-<dom-module id="my-view1">
+<dom-module id="page-blog">
   <template>
     <style include="shared-styles">
        :host {
@@ -33,10 +33,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    class MyView1 extends Polymer.Element {
-      static get is() { return 'my-view1'; }
+    class PageBlog extends Polymer.Element {
+      static get is() { return 'page-blog'; }
     }
 
-    window.customElements.define(MyView1.is, MyView1);
+    window.customElements.define(PageBlog.is, PageBlog);
   </script>
 </dom-module>
