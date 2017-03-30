@@ -125,7 +125,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       _routePageChanged(page) {
         // Polymer 2.0 will call with `undefined` on initialization.
         // Ignore until we are properly called with a string.
+        console.log(page);
         if (page === undefined) {
+          return;
+        }
+
+        if (page === "") {
+          window.history.pushState({}, null, '/page-blog');
+          window.dispatchEvent(new CustomEvent('location-changed'));
           return;
         }
 
@@ -141,6 +148,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _pageChanged(page) {
         // Load page import on demand. Show 404 page if fails
+        console.log("load page : " + page);
         var resolvedPageUrl = this.resolveUrl(page + '.html');
         Polymer.importHref(
             resolvedPageUrl,

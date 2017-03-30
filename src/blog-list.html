@@ -24,11 +24,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <post-list posts="{{posts}}"></post-list>
 
     <template is="dom-repeat" items="{{posts}}">
-      <div class="card">
-        <div class="circle">[[index]]</div>
-        <h1>[[item.title]]</h1>
-        <p>[[item.author]]</p>
-      </div>
+      <a href="page-blog/[[item.id]]">
+        <div class="card">
+          <div class="circle">[[index]]</div>
+          <h1>[[item.title]]</h1>
+          <p>[[item.author]]</p>
+        </div>
+      </a>
     </template>
   </template>
 

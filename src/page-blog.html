@@ -10,6 +10,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/app-route/app-route.html">
+<link rel="import" href="../bower_components/iron-pages/iron-pages.html">
 
 <dom-module id="page-blog">
   <template>
@@ -23,8 +25,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <app-route
         route="{{route}}"
         pattern="/:id"
-        data="{{routeData}}"
-        tail="{{subroute}}"></app-route>
+        data="{{routeData}}"></app-route>
 
     <iron-pages
         selected="[[page]]"
@@ -42,7 +43,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       static get properties() {
         return {
           route: {
-            type: Object
+            type: Object,
+            observer: '_routeChange'
           }
         };
       }
@@ -53,7 +55,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         ];
       }
 
+      _routeChange(route) {
+        console.log(route);
+        if (!route.path) {
+          this.page = "blog-list";
+        }
+      }
+
       _idChanged(id) {
+        console.log(id);
         this.page = id ? "single-post" : "blog-list";
         this.id = id;
 
