@@ -22,10 +22,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <post-entity post="{{post}}"></post-entity>
+    <post-entity post="{{post}}" post-id="[[postId]]"></post-entity>
 
     <div class="card">
-      <div class="circle">2</div>
+      <div class="circle">[[post.id]]</div>
       <h1>[[post.title]]</h1>
       <p>[[post.author]]</p>
       <p>[[post.body]]</p>
@@ -35,6 +35,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <script>
     class SinglePost extends Polymer.Element {
       static get is() { return 'single-post'; }
+      static get properties() {
+        return {
+          postId: {
+            type: Number,
+            reflectToAttribute: true
+          }
+        };
+      }
+
+      _postChanged(post) {
+        console.log(post);
+      }
     }
 
     window.customElements.define(SinglePost.is, SinglePost);

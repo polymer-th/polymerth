@@ -31,7 +31,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         attr-for-selected="name"
         role="main">
       <blog-list name="blog-list"></blog-list>
-      <single-post name="single-post"></single-post>
+      <single-post name="single-post" post-id="[[id]]"></single-post>
     </iron-pages>
   </template>
 
@@ -55,6 +55,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       _idChanged(id) {
         this.page = id ? "single-post" : "blog-list";
+        this.id = id;
 
         var resolvedPageUrl = this.resolveUrl(this.page + '.html');
         Polymer.importHref(
