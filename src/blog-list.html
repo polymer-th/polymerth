@@ -10,7 +10,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
-<link rel="import" href="post-list.html">
+<link rel="import" href="post-list-entity.html">
 
 <dom-module id="blog-list">
   <template>
@@ -21,7 +21,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <post-list posts="{{posts}}"></post-list>
+    <post-list-entity posts="{{posts}}"></post-list-entity>
 
     <template is="dom-repeat" items="{{posts}}">
       <a href="page-blog/[[item.id]]">
