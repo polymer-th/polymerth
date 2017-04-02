@@ -68,8 +68,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         route="{{route}}"
         pattern="/:page"
         data="{{routeData}}"
-        tail="{{subroute}}"
-        active="{{routeActive}}"></app-route>
+        tail="{{subroute}}"></app-route>
 
     <app-drawer-layout fullbleed>
       <!-- Drawer content -->
@@ -92,11 +91,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </app-header>
 
         <iron-pages
-          selected="[[page]]"
-          attr-for-selected="name"
-          fallback-selection="page-404"
-          role="main">
-          <page-welcome name="page-welcome"></page-welcome>
+            selected="[[page]]"
+            attr-for-selected="name"
+            fallback-selection="page-404"
+            role="main">
           <page-blog name="page-blog" route="[[subroute]]"></page-blog>
           <post-editing name="post-editing"></post-editing>
           <page-404 name="page-404"></page-404>
@@ -134,9 +132,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           return;
         }
 
+        if (page === "") {
+          window.history.pushState({}, null, '/page-blog');
+          window.dispatchEvent(new CustomEvent('location-changed'));
+          return;
+        }
+
         // If no page was found in the route data, page will be an empty string.
         // Deault to 'view1' in that case.
-        this.page = page || 'page-welcome';
+        this.page = page || 'page-blog';
 
         // Close a non-persistent drawer when the page & route are changed.
         if (!this.$.drawer.persistent) {
